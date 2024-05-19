@@ -18,7 +18,9 @@ start_time = 0
 mem_counter = 0
 total_mem_usage = 0
 
-def print_self_process_info():
+# Print current memory usage
+# and current average memory usage
+def print_self_process_info() -> None:
     global mem_counter # int
     global total_mem_usage # float
 
@@ -29,6 +31,7 @@ def print_self_process_info():
     memory_info = psutil.Process(pid).memory_info()
     mem_usage = memory_info.rss / (1024 * 1024)  # Convert to MB
     total_mem_usage += mem_usage
+    
     mem_counter += 1
 
     print(f"PID: {pid}, Memory Usage: {mem_usage} MB")
@@ -42,7 +45,7 @@ def home():
     return render_template("index.html")
 
 @coffee_app.route("/get_temperature")
-def get_current_temperature():
+def get_current_temperature() -> dict:
     global current_temperature
     return {"temperature": current_temperature}
 
@@ -50,7 +53,7 @@ def get_current_temperature():
 Route for temperature handling
 """
 @coffee_app.route("/update_temperature", methods=["POST"])
-def process_temperature_update():
+def process_temperature_update() -> str:
     global current_temperature # float
     global prior_temperature # float
     global coffee_machine_on # bool
