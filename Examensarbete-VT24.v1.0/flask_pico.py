@@ -8,6 +8,7 @@ Program does the following:
 Variables which needs to be changed:
 - SSID and PASSWORD in the connect_to_wifi function
 - Server IP and port in the send_temperature function
+- The used data pin in the end of the program
 
 If you intend to use this program as a permanent solution,
 then the if statement in the end needs to be removed.
