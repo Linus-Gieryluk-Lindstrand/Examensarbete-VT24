@@ -51,6 +51,17 @@ def connect_to_wifi() -> None:
         status = wlan.ifconfig()
         print("ip = " + status[0])
 
+# Return value of cyw43_wifi_link_status
+# define CYW43_LINK_DOWN (0)
+# define CYW43_LINK_JOIN (1)
+# define CYW43_LINK_NOIP (2)
+# define CYW43_LINK_UP (3)
+# define CYW43_LINK_FAIL (-1)
+# define CYW43_LINK_NONET (-2)
+# define CYW43_LINK_BADAUTH (-3)
+
+# Raspberry Pi Pico WiFi docs: https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf
+
 # Read from DS18B20 temperature sensor.
 def read_temperature() -> float:
     ds_sensor.convert_temp()
