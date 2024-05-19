@@ -1,3 +1,20 @@
+"""
+Program does the following:
+- Reads temperature from a DS18B20 temperature sensor
+- Sends temperature to a Flask server over Wi-Fi
+- Measures latency every time the program sends the temperature
+- Calculates the average latency since the program started
+
+Variables which needs to be changed:
+- SSID and PASSWORD in the connect_to_wifi function
+- Server IP and port in the send_temperature function
+
+If you intend to use this program as a permanent solution,
+then the if statement in the end needs to be removed.
+New versions of this code will not have this code anymore
+since it was used to calculate the average latency only.
+"""
+
 # Imported modules
 import network
 import urequests
