@@ -1,4 +1,9 @@
+"""
 # Simple program that sends an email.
+The sender mail is a normal gmail but
+the password is an application password
+and is created in the gmail settings.
+"""
 
 # Imported Classes
 from email.message import EmailMessage
@@ -36,3 +41,10 @@ class EmailNotification:
         server.login(self.sender, self.password)
         server.send_message(msg)
         server.quit()
+
+if __name__ == "__main__":
+    """
+    Gmails and password are examples.
+    """
+    notifier = EmailNotification("example@gmail.com", "oltwyhtmfawszvgo")
+    notifier.send_email("example@gmail.com", "Subject!", "You've got mail!")
