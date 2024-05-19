@@ -40,15 +40,15 @@ def read_temperature() -> float:
     for rom in roms:
         pass
     tempC = ds_sensor.read_temp(rom)
-    return tempC  # Return temperature and ROMs
+    return tempC  # Return temperature
 
-# Used to calculate Averages
+# Used to calculate average latency
 total_latency = 0
 loop_counter = 0
 
 def send_temperature() -> None:
-    global total_latency # Float
-    global loop_counter# Int
+    global total_latency # float
+    global loop_counter# int
 
     # Reads the current temperature
     temperature = read_temperature()
@@ -73,6 +73,7 @@ def send_temperature() -> None:
 
     gc.collect()  # Perform garbage collection
 
+    # Print latency and average latency
     print(f"Latency: {latency} seconds")
     print(f"Average latency: {total_latency / loop_counter} seconds")
     print(f"The program has looped {loop_counter} times.")
