@@ -1,3 +1,8 @@
+"""
+This small program is used to calculate:
+- throughput
+- run time of the program
+"""
 amount_of_samples = int(input("Amount of samples?"))
 sample_interval = float(input("sample interal: "))
 average_latency = float(input("Average latency: "))
