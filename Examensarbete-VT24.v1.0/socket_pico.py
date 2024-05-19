@@ -1,3 +1,21 @@
+"""
+Program does the following:
+- Reads temperature from a DS18B20 temperature sensor
+- Sends temperature to a Socket server over Wi-Fi
+- Measures latency every time the program sends the temperature
+- Calculates the average latency since the program started
+
+Variables which needs to be changed:
+- SSID and PASSWORD in the connect_to_wifi function
+- Server IP and port in the connect_to_socket_server function
+- The used data pin in the end of the program
+
+If you intend to use this program as a permanent solution,
+then the if statement in the end needs to be removed.
+New versions of this code will not have this code anymore
+since it was used to calculate the average latency only.
+"""
+
 # Imported modules
 import network
 import usocket as socket
@@ -48,7 +66,7 @@ def connect_to_socket_server() -> str:
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     # Connect to the server
-    client_socket.connect(("SERVER_IP", 5001))
+    client_socket.connect(("SERVER_IP", "PORT"))
     print("Connected to server")
     return client_socket
 
@@ -100,7 +118,7 @@ if __name__ == "__main__":
     client_socket = connect_to_socket_server()
 
     # Set pin and find sensor
-    ds_pin = machine.Pin(28)
+    ds_pin = machine.Pin("PIN")
     ds_sensor = ds18x20.DS18X20(onewire.OneWire(ds_pin))
     roms = ds_sensor.scan()
     print('Found DS devices: ', roms)
