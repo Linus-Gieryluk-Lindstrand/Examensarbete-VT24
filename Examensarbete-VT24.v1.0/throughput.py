@@ -1,7 +1,7 @@
 """
 This small program is used to calculate:
 - throughput
-- run time of the program
+- run time
 """
 amount_of_samples = int(input("Amount of samples?"))
 sample_interval = float(input("sample interal: "))
