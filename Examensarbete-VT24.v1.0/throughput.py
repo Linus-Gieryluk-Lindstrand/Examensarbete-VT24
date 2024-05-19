@@ -13,5 +13,6 @@ cumulative_bytes = int(input("Cumulative bytes: "))
 total_bits = cumulative_bytes * 8
 
 bps = total_bits / total_time
+run_time = total_bits / bps
 print(f"bps: {bps:.0f}")
-print(f"total time in seconds: {total_bits / bps}")
+print(f"total time in seconds: {run_time}")
