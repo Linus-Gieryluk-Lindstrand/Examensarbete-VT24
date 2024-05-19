@@ -1,3 +1,6 @@
+"""
+The port needs to be changed at the end of the program.
+"""
 # Imported modules
 import socket
 import actions
@@ -16,7 +19,9 @@ start_time = 0
 mem_counter = 0
 total_mem_usage = 0
 
-def print_self_process_info():
+# Prints current memory usage
+# aswell as current average memory usage
+def print_self_process_info() -> None:
     global mem_counter # int
     global total_mem_usage # float
 
@@ -32,7 +37,7 @@ def print_self_process_info():
     print(f"PID: {pid}, Memory Usage: {mem_usage} MB")
     print(f"Average Memory Usage: {total_mem_usage / mem_counter} MB")
 
-def process_temperature_update(client_socket):
+def process_temperature_update(client_socket) -> str:
     global prior_temperature # float
     global coffee_counter # int
     global coffee_machine_on # bool
@@ -114,7 +119,7 @@ if __name__ == "__main__":
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     # Bind the socket to the address and port
-    server_socket.bind(("0.0.0.0", 5001))
+    server_socket.bind(("0.0.0.0", PORT))
 
     # Specifies the amount of allowed clients
     server_socket.listen(1)
