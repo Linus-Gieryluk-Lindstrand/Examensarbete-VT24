@@ -20,7 +20,7 @@ class EmailNotification:
         self.sender = sender
         self.password = password
 
-    def send_email(self: str, to: str, subject: str, body: str) -> None:
+    def send_email(self, to: str, subject: str, body: str) -> None:
         # Create instances.
         msg = EmailMessage()
         server = SMTP(host=self.HOST, port=self.PORT)
