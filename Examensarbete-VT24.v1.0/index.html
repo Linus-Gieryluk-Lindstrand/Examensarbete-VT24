@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Monitor</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <h1>Current Temperature:</h1>
+    <p id="temperature">Loading...</p>
+
+    <script>
+        function fetchTemperature() {
+            fetch('/get_temperature')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('temperature').innerText = data.temperature + '°C';
+            })
+            .catch(error => {
+                console.error('Error fetching temperature:', error);
+            });
+        }
+
+        // Fetch temperature every 5 seconds
+        setInterval(fetchTemperature, 5000);
+
+        // Initial fetch
+        fetchTemperature();
+    </script>
+</body>
+</html>
